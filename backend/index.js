@@ -4,12 +4,14 @@ require('dotenv').config({path: './config/config.env'})
 const cors = require("cors")
 const cookieParser  = require('cookie-parser')
 const router = require('../backend/router/authRoutes');
+const documentRoutes = require('../backend/router/documentRoutes');
 const { connectProducer } = require('./kafka/kafkaProducer');
 const passportRoutes = require('./router/passportRoutes'); 
 
 
 const app = express();
 const port = process.env.PORT || 4000;
+app.use("/api/documents" , documentRoutes);
 app.use(express.json()); 
 app.use(cookieParser());
 app.set("trust proxy", 1);
@@ -28,6 +30,7 @@ app.get("/" , (req,res)=>{
 
 app.use("/api/auth" , router); 
 app.use("/api/passports" , passportRoutes); 
+
 
 app.listen(port , ()=>{
     console.log(`now responding to port ${port}`);
