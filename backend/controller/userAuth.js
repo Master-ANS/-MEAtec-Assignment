@@ -55,7 +55,7 @@ const register = async (req, res) => {
     }
 };
 
-// Login endpoint
+// Login endpoint 
 const login = async (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) {

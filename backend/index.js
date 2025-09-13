@@ -20,7 +20,7 @@ app.use(cors({
     credentials: true}));
 app.use(express.json()); 
 
-connectProducer().catch(err => console.error("Kafka pro ducer error:", err));
+connectProducer().catch(err => console.error("Kafka producer error:", err));
 
 app.get("/" , (req,res)=>{
     res.send(`The code is working${port}`)

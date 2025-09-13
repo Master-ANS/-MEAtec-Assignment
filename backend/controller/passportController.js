@@ -1,7 +1,7 @@
 const { passportModel } = require('../Model/passportModel');
 const { sendEvent } = require('../kafka/kafkaProducer');
 
-// Create Battery Passport
+
 const createPassport = async (req, res) => {
     try {
         const passport = new passportModel(req.body.data);

@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema({
     resetOtp: { type: String, default: '' },
     resetOtpExpireAt: { type: Date, default: null }
 }, { timestamps: true });
-const userModel = mongoose.models.IDEAVAULT || mongoose.model('IDEAVAULT', userSchema);
+const userModel = mongoose.models.passPortUser || mongoose.model('passPortUsers', userSchema);
 
 module.exports = {
     userModel
